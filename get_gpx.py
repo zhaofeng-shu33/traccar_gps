@@ -15,8 +15,8 @@ def get_data(from_time, to_time):
     a = HTTPBasicAuth(config_dic['email'], config_dic['password'])
     payload = {
         'deviceId': config_dic['deviceId'],
-        'from': datetime.isoformat(from_time),
-        'to': datetime.isoformat(to_time)
+        'from': datetime.isoformat(from_time) + 'Z',
+        'to': datetime.isoformat(to_time) + 'Z'
         }
     headers = {'Accept': 'application/gpx+xml'}
     r = requests.get(url, auth=a, params=payload, headers=headers)
