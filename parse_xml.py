@@ -5,5 +5,5 @@ def get_coordinate_list(file_name):
     soup = BeautifulSoup(st, "lxml")
     Ls = []
     for i in soup.find_all("trkpt"):
-        Ls.append([float(i['lon']), float(i['lat'])])
+        Ls.append([float(i['lon']), float(i['lat']), i.time.text])
     return Ls
